@@ -1,0 +1,8 @@
+/node_modules/
+/test/
+*.patch
+src
+/webpack/
+/public/
+.vscode
+.babelrc
