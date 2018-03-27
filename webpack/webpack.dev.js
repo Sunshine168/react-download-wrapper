@@ -10,13 +10,13 @@ module.exports = {
     path: path.resolve(__dirname),
     publicPath: '/',
   },
+  mode: 'development',
   devServer: {
     hot: true,
     contentBase: path.resolve(__dirname, '../build'),
     publicPath: '/',
     historyApiFallback: true,
   },
-  mode: 'development',
   module: {
     rules: [
       {

@@ -2,10 +2,12 @@
   "name": "react-download-wrapper",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "build/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server"
+    "dev": "node server",
+    "prebuild": "rm -rf ./build",
+    "build": "webpack --config ./webpack/webpack.prod.js --progress"
   },
   "keywords": [],
   "author": "",
@@ -28,12 +30,14 @@
     "eslint-plugin-react": "^7.5.1",
     "express": "^4.16.2",
     "flow-bin": "^0.66.0",
-    "webpack": "^4.2.0",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack-cli": "^2.0.13",
     "webpack-dev-middleware": "^1.12.2",
     "webpack-hot-middleware": "^2.21.0"
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "webpack": "^4.2.0"
   }
 }
