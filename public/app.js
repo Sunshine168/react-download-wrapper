@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <DownloadWrapper>
+        <DownloadWrapper method='post' action='/download'>
           <button>download</button>
         </DownloadWrapper>
       </div>

@@ -28,6 +28,10 @@ app.get('/', (req, res) => {
   res.render(BUILD_PATH)
 })
 
+app.post('/download', (req, res) => {
+  res.download(path.resolve(__dirname, './static/test.txt'), 'test.txt'); 
+})
+
 app.listen(PORT, () => {
   console.log(`Express app listening on port ${PORT}! \n`)
 })
