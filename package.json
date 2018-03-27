@@ -33,11 +33,9 @@
     "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack-cli": "^2.0.13",
     "webpack-dev-middleware": "^1.12.2",
-    "webpack-hot-middleware": "^2.21.0"
-  },
-  "dependencies": {
+    "webpack-hot-middleware": "^2.21.0",
+    "webpack": "^4.2.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "webpack": "^4.2.0"
+    "react-dom": "^16.2.0"
   }
 }
