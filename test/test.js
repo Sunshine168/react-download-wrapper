@@ -10,7 +10,15 @@ Enzyme.configure({ adapter: new Adapter() })
 test('Download display is ok', (t) => {
   const App = () => (
     <Download action='/' method='post'>
-      <button>download</button>
+      {({ form }) => (
+        <button
+          onClick={() => {
+            form.onSubmit()
+          }}
+        >
+          download
+        </button>
+      )}
     </Download>
   )
   const button = mount(<App />)
@@ -34,9 +42,41 @@ test('params passed is ok', (t) => {
         },
       ]}
     >
-      <button>download</button>
+      {({ form }) => (
+        <button
+          onClick={() => {
+            form.onSubmit()
+          }}
+        >
+          download
+        </button>
+      )}
     </Download>
   )
   const button = mount(<App />)
   t.is(button.find('input').length, 2)
+})
+
+test('error should be throw', (t) => {
+  const App = () => (
+    <Download
+      action='/'
+      method='post'
+      params={[
+        {
+          name: 'test1',
+          value: '1',
+        },
+        {
+          name: 'test2',
+          value: '1',
+        },
+      ]}
+    >
+      <button>download</button>
+    </Download>
+  )
+  t.throws(() => {
+    mount(<App />, Error)
+  })
 })

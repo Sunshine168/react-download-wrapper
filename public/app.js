@@ -13,7 +13,15 @@ class App extends Component {
           action="/download"
           params={[{ value: '123', name: 'test1' }]}
         >
-          <button>download</button>
+          {({ form }) => (
+            <button
+              onClick={() => {
+                form.onSubmit()
+              }}
+            >
+              download
+            </button>
+          )}
         </DownloadWrapper>
       </div>
     )
