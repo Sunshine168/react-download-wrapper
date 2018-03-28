@@ -13,6 +13,7 @@ export type PropsType = {
   params: Array<Param>,
   children: React.Children,
   renderInputItem(param: Param): React$Element<*>,
+  disabled: boolean,
 }
 
 export type DefaultProps = {
@@ -24,6 +25,11 @@ export default class DownloadWrapper extends React.Component<DefaultProps, Props
     params: [],
   }
   onClick = (e: SyntheticEvent): void => {
+    const { disabled } = this.props
+    if (disabled) {
+      return
+    }
+
     const { form } = this
     if (!(form instanceof window.HTMLElement)) {
       return
