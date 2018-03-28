@@ -6,8 +6,8 @@
 
 ### install
 ```js
-yarn add react-download-wrapper 
-// or npm install react-download-wrapper -S
+yarn add react-dl-wrapper 
+// or npm install react-dl-wrapper -S
 // 
 ```
 
