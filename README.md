@@ -1,4 +1,4 @@
-# react-download-wrapper
+# react-dl-wrapper
 
 [![Build Status](https://img.shields.io/travis/Sunshine168/react-download-wrapper.svg?style=flat-square)](https://travis-ci.org/Sunshine168/react-download-wrapper)
 
