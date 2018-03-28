@@ -1,5 +1,5 @@
 {
-  "name": "react-download-wrapper",
+  "name": "react-dl-wrapper",
   "version": "1.0.0",
   "description": "a form download wrapper for react",
   "main": "build/main.js",

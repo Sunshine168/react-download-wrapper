@@ -13,7 +13,7 @@ yarn add react-download-wrapper
 
 ### import 
 ```js
-import DownloadWrapper from 'react-download-wrapper'
+import DownloadWrapper from 'react-dl-wrapper'
 ...
 ```
 
