@@ -7,13 +7,11 @@ export type Param = {
 }
 
 export type PropsType = {
-  onClick(e: SyntheticEvent): void,
   method: string,
   action: string,
   params: Array<Param>,
-  children: React.Children,
+  children({ form: HTMLElement }): React$Element<*>,
   renderInputItem(param: Param): React$Element<*>,
-  disabled: boolean,
 }
 
 export type DefaultProps = {
@@ -24,38 +22,21 @@ export default class DownloadWrapper extends React.Component<DefaultProps, Props
   static defaultProps: DefaultProps = {
     params: [],
   }
-  onClick = (e: SyntheticEvent): void => {
-    const { disabled } = this.props
-    if (disabled) {
-      return
-    }
-
-    const { form } = this
-    if (!(form instanceof window.HTMLElement)) {
-      return
-    }
-
-    form.submit()
-    const { onClick } = this.props
-    if (typeof onClick === 'function') {
-      onClick(e)
-    }
-  }
 
   form: HTMLElement
 
   render() {
     const {
-      method, children, action, params, renderInputItem, ...otherProps
+      method, children, action, params, renderInputItem,
     } = this.props
-    const elem = React.Children.only(children)
-    const Element = React.cloneElement(elem, {
-      ...otherProps,
-      onClick: this.onClick,
-    })
+
+    if (typeof children !== 'function') {
+      throw new Error('children should be a function')
+    }
+
     return (
       <form method={method} action={action} ref={form => (this.form = form)}>
-        {Element}
+        {children({ form: this.form })}
         {params.map((param) => {
           if (renderInputItem) {
             return renderInputItem(param)
