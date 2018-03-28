@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 
@@ -7,7 +8,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <DownloadWrapper method='post' action='/download'>
+        <DownloadWrapper
+          method="post"
+          action="/download"
+          params={[{ value: '123', name: 'test1' }]}
+        >
           <button>download</button>
         </DownloadWrapper>
       </div>
