@@ -1,6 +1,6 @@
 {
   "name": "react-dl-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a form download wrapper for react",
   "main": "build/main.js",
   "scripts": {
@@ -9,7 +9,10 @@
     "build": "webpack --config ./webpack/webpack.prod.js --progress",
     "test": "npm run build && ava"
   },
-  "keywords": ["react","form download"],
+  "keywords": [
+    "react",
+    "form download"
+  ],
   "author": "sunner168",
   "license": "MIT",
   "devDependencies": {
@@ -44,13 +47,13 @@
     "webpack-dev-middleware": "^1.12.2",
     "webpack-hot-middleware": "^2.21.0"
   },
-  "peerDependencies":{
+  "peerDependencies": {
     "react": "^16.2.0"
   },
   "ava": {
     "require": [
-			"./test/helpers/browser-env.js"
-		]
+      "./test/helpers/browser-env.js"
+    ]
   },
   "dependencies": {}
 }
