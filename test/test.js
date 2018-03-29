@@ -10,10 +10,10 @@ Enzyme.configure({ adapter: new Adapter() })
 test('Download display is ok', (t) => {
   const App = () => (
     <Download action='/' method='post'>
-      {({ form }) => (
+      {({ getForm }) => (
         <button
           onClick={() => {
-            form.onSubmit()
+            getForm().submit()
           }}
         >
           download
@@ -24,37 +24,6 @@ test('Download display is ok', (t) => {
   const button = mount(<App />)
   t.is(button.find('form').length, 1)
   t.is(button.find('button').length, 1)
-})
-
-test('params passed is ok', (t) => {
-  const App = () => (
-    <Download
-      action='/'
-      method='post'
-      params={[
-        {
-          name: 'test1',
-          value: '1',
-        },
-        {
-          name: 'test2',
-          value: '1',
-        },
-      ]}
-    >
-      {({ form }) => (
-        <button
-          onClick={() => {
-            form.onSubmit()
-          }}
-        >
-          download
-        </button>
-      )}
-    </Download>
-  )
-  const button = mount(<App />)
-  t.is(button.find('input').length, 2)
 })
 
 test('error should be throw', (t) => {
@@ -79,4 +48,35 @@ test('error should be throw', (t) => {
   t.throws(() => {
     mount(<App />, Error)
   })
+})
+
+test('get form is ok', (t) => {
+  const App = () => (
+    <Download
+      action='/'
+      method='post'
+      params={[
+        {
+          name: 'test1',
+          value: '1',
+        },
+        {
+          name: 'test2',
+          value: '1',
+        },
+      ]}
+    >
+      {({ getForm }) => (
+        <button
+          onClick={() => {
+            t.true(getForm() instanceof window.HTMLElement)
+          }}
+        >
+          download
+        </button>
+      )}
+    </Download>
+  )
+  const app = mount(<App />)
+  app.find('button').simulate('click')
 })
