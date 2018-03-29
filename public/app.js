@@ -13,10 +13,10 @@ class App extends Component {
           action="/download"
           params={[{ value: '123', name: 'test1' }]}
         >
-          {({ form }) => (
+          {({ getForm }) => (
             <button
               onClick={() => {
-                form.onSubmit()
+                getForm().submit()
               }}
             >
               download

@@ -40,8 +40,5 @@ param in array look like
 }
 ```
 
-### onClick
-**PS: Children onClick event will be wrote ，so pass onClick event in wrapper**
-
 ## MIT
 
