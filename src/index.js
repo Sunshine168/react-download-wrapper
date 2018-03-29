@@ -23,6 +23,10 @@ export default class DownloadWrapper extends React.Component<DefaultProps, Props
     params: [],
   }
 
+  getForm = () => {
+    return this.form
+  }
+
   form: HTMLElement
 
   render() {
@@ -33,10 +37,9 @@ export default class DownloadWrapper extends React.Component<DefaultProps, Props
     if (typeof children !== 'function') {
       throw new Error('children should be a function')
     }
-
     return (
       <form method={method} action={action} ref={form => (this.form = form)}>
-        {children({ form: this.form })}
+        {children({ getForm: this.getForm })}
         {params.map((param) => {
           if (renderInputItem) {
             return renderInputItem(param)
